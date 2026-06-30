@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nifty Indices Rejig – 29 June 2026 | SigmaOne Capital</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #F4F6F9;
+    color: #1C1C1C;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 32px auto;
+    background: #FFFFFF;
+    border: 1px solid #D8DCE2;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #0F2440;
+    padding: 28px 36px 22px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .header-left { flex: 1; }
+  .brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+  }
+  .brand span { color: #4FC3A1; }
+  .tagline {
+    font-size: 10.5px;
+    color: #8AAEC8;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-right { text-align: right; }
+  .report-type {
+    display: inline-block;
+    background: #1E3D64;
+    color: #A8C8E8;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+  .report-date {
+    color: #8AAEC8;
+    font-size: 11.5px;
+    margin-top: 6px;
+  }
+
+  /* ── Title Band ── */
+  .title-band {
+    background: #162E50;
+    padding: 14px 36px;
+    border-bottom: 2px solid #4FC3A1;
+  }
+  .title-band h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: 0.2px;
+  }
+  .title-band p {
+    font-size: 11px;
+    color: #7CA0BC;
+    margin-top: 3px;
+  }
+
+  /* ── Body ── */
+  .body { padding: 28px 36px; }
+
+  /* ── Intro Box ── */
+  .intro-box {
+    background: #EEF3F9;
+    border-left: 3px solid #2C6FAC;
+    border-radius: 0 4px 4px 0;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+  }
+  .intro-box p { font-size: 13px; color: #2A3A50; line-height: 1.7; }
+  .intro-box .note {
+    font-size: 12px;
+    color: #4A6A8A;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* ── Section Title ── */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+  .badge-inflow { background: #D6F0E6; color: #1A6E45; }
+  .badge-outflow { background: #FDEAEA; color: #A32020; }
+  .badge-neutral { background: #E8EFF7; color: #1F4A7A; }
+  .section-title h2 { font-size: 14px; font-weight: 600; color: #0F2440; }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  thead tr { background: #0F2440; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #A8C8E8;
+    white-space: nowrap;
+  }
+  thead th:last-child { text-align: right; }
+  tbody tr { border-bottom: 1px solid #EEF0F3; transition: background 0.1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #F7F9FB; }
+  tbody td { padding: 8px 12px; color: #1C1C1C; }
+  tbody td:first-child { color: #8A8FA0; font-size: 11px; width: 36px; }
+  tbody td.stock { font-weight: 600; color: #0F2440; }
+  tbody td.flow-in { font-weight: 700; color: #1A6E45; text-align: right; }
+  tbody td.flow-out { font-weight: 700; color: #A32020; text-align: right; }
+  tbody td.shares { text-align: right; color: #5A6070; }
+
+  /* Alternating subtle rows */
+  tbody tr:nth-child(even) { background: #FAFBFC; }
+  tbody tr:nth-child(even):hover { background: #F3F6FA; }
+
+  /* ── Two column tables grid ── */
+  .tables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 680px) { .tables-grid { grid-template-columns: 1fr; } }
+
+  /* ── Impact Section ── */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 600px) { .impact-grid { grid-template-columns: 1fr; } }
+  .impact-card {
+    border: 1px solid #D8DCE2;
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .impact-card .ic-num {
+    width: 24px; height: 24px;
+    background: #0F2440;
+    color: #4FC3A1;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .impact-card h3 { font-size: 12.5px; font-weight: 600; color: #0F2440; margin-bottom: 5px; }
+  .impact-card p { font-size: 12px; color: #4A5568; line-height: 1.55; }
+
+  /* ── Observation Section ── */
+  .obs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px; }
+  @media (max-width: 600px) { .obs-grid { grid-template-columns: 1fr; } }
+  .obs-card { border-radius: 4px; padding: 14px 16px; }
+  .obs-card.buy { background: #F0FBF6; border: 1px solid #B0DECA; }
+  .obs-card.sell { background: #FEF4F4; border: 1px solid #EBBBBB; }
+  .obs-card h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .obs-card.buy h3 { color: #1A6E45; }
+  .obs-card.sell h3 { color: #A32020; }
+  .obs-card ul { list-style: none; padding: 0; }
+  .obs-card ul li { font-size: 12.5px; color: #2A3A30; padding: 3px 0; }
+  .obs-card ul li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+  .obs-card.buy ul li::before { background: #1A6E45; }
+  .obs-card.sell ul li::before { background: #A32020; }
+
+  /* ── Learnings ── */
+  .learnings { background: #F7F9FB; border: 1px solid #D0D8E4; border-radius: 4px; padding: 16px 20px; }
+  .learnings h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #1F4A7A; margin-bottom: 10px; }
+  .learnings ul { list-style: none; padding: 0; }
+  .learnings ul li {
+    font-size: 12.5px;
+    color: #2A3A50;
+    padding: 5px 0;
+    border-bottom: 1px solid #E0E8F0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .learnings ul li:last-child { border-bottom: none; }
+  .learnings ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2C6FAC;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  /* ── Divider ── */
+  .divider { border: none; border-top: 1px solid #E8ECF2; margin: 24px 0; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #F0F3F7;
+    border-top: 1px solid #D4D9E2;
+    padding: 14px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer .source-text { font-size: 11px; color: #5A6070; line-height: 1.5; }
+  .footer .source-text strong { color: #0F2440; }
+  .footer .disclaimer { font-size: 10.5px; color: #8A8FA0; max-width: 440px; line-height: 1.5; }
+
+  /* ── SEBI Disclosure Section ── */
+  .sebi-disc-section {
+    background: #F2F5F9;
+    border-top: 2px solid #D0D8E4;
+    padding: 20px 36px 22px;
+  }
+  .sebi-disc-section .sebi-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #D4D9E2;
+  }
+  .sebi-disc-section h4 {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0F2440;
+  }
+  .sebi-disc-section .sebi-reg-badge {
+    background: #DDE8F5;
+    border: 1px solid #B0C8DF;
+    border-radius: 3px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1F4A7A;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+  .sebi-disc-section .disc-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 20px;
+    margin-bottom: 13px;
+  }
+  @media (max-width: 600px) { .sebi-disc-section .disc-points { grid-template-columns: 1fr; } }
+  .sebi-disc-section .disc-pt {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 10.5px;
+    color: #4A5568;
+    line-height: 1.5;
+    padding: 3px 0;
+  }
+  .sebi-disc-section .disc-pt::before {
+    content: '▸';
+    color: #2C6FAC;
+    font-size: 9px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .sebi-disc-section .general-disc {
+    font-size: 10px;
+    color: #5A6370;
+    line-height: 1.65;
+    padding-top: 12px;
+    border-top: 1px solid #D8DEE8;
+  }
+  .sebi-disc-section .general-disc strong { color: #0F2440; }
+  .sebi-disc-section .scores-link { color: #2C6FAC; font-weight: 600; }
+
+  /* ── Print ── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; border: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="brand">Sigma<span>One</span> Capital</div>
+      <div class="tagline">SEBI Reg. Research Analyst — INH000027812 &nbsp;|&nbsp; Research Intelligence</div>
+    </div>
+    <div class="header-right">
+      <div class="report-type">Market Note</div>
+      <div class="report-date">29 June 2026</div>
+    </div>
+  </div>
+
+  <!-- Title Band -->
+  <div class="title-band">
+    <h1>Nifty Indices Rebalancing — June 2026</h1>
+    <p>Passive Fund Flow Analysis &nbsp;|&nbsp; Broader &amp; Strategic Indices Rejig</p>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <!-- Intro -->
+    <div class="intro-box">
+      <p>On 29 June 2026, NSE conducted a scheduled rebalancing across several Nifty Broader and Strategic Indices. Passive funds, ETFs, and index funds are required to align their holdings to the revised index composition, which results in forced buying and selling across a set of securities on the effective date.</p>
+      <p class="note">Important: Index rebalancing flows do not reflect any change in a company's fundamentals, earnings, or business outlook. These are purely structural, weight-driven events driven by passive mandate compliance.</p>
+    </div>
+
+    <!-- Tables Grid -->
+    <div class="tables-grid">
+
+      <!-- Inflows Table -->
+      <div>
+        <div class="section-title">
+          <span class="badge badge-inflow">Inflows</span>
+          <h2>Top Expected Buying</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Stock</th>
+                <th>Flow (USD Mn)</th>
+                <th>Shares (Mn)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td class="stock">MCX</td><td class="flow-in">+80</td><td class="shares">2.7</td></tr>
+              <tr><td>2</td><td class="stock">NTPC</td><td class="flow-in">+77</td><td class="shares">20.5</td></tr>
+              <tr><td>3</td><td class="stock">Laurus Labs</td><td class="flow-in">+73</td><td class="shares">4.7</td></tr>
+              <tr><td>4</td><td class="stock">Adani Power</td><td class="flow-in">+72</td><td class="shares">29.4</td></tr>
+              <tr><td>5</td><td class="stock">GVT&D</td><td class="flow-in">+70</td><td class="shares">1.3</td></tr>
+              <tr><td>6</td><td class="stock">BHEL</td><td class="flow-in">+60</td><td class="shares">14.1</td></tr>
+              <tr><td>7</td><td class="stock">Tata Steel</td><td class="flow-in">+59</td><td class="shares">29.3</td></tr>
+              <tr><td>8</td><td class="stock">Vedanta</td><td class="flow-in">+51</td><td class="shares">16.9</td></tr>
+              <tr><td>9</td><td class="stock">Polycab</td><td class="flow-in">+46</td><td class="shares">0.4</td></tr>
+              <tr><td>10</td><td class="stock">Bharat Forge</td><td class="flow-in">+45</td><td class="shares">2.0</td></tr>
+              <tr><td>11</td><td class="stock">CG Power</td><td class="flow-in">+43</td><td class="shares">4.5</td></tr>
+              <tr><td>12</td><td class="stock">Power India</td><td class="flow-in">+42</td><td class="shares">0.1</td></tr>
+              <tr><td>13</td><td class="stock">NALCO</td><td class="flow-in">+40</td><td class="shares">10.9</td></tr>
+              <tr><td>14</td><td class="stock">HDFC Bank</td><td class="flow-in">+40</td><td class="shares">4.7</td></tr>
+              <tr><td>15</td><td class="stock">Adani Energy Sol.</td><td class="flow-in">+37</td><td class="shares">2.3</td></tr>
+              <tr><td>16</td><td class="stock">Torrent Pharma</td><td class="flow-in">+36</td><td class="shares">0.8</td></tr>
+              <tr><td>17</td><td class="stock">Coal India</td><td class="flow-in">+35</td><td class="shares">7.5</td></tr>
+              <tr><td>18</td><td class="stock">Vodafone Idea</td><td class="flow-in">+33</td><td class="shares">216.8</td></tr>
+              <tr><td>19</td><td class="stock">Motherson</td><td class="flow-in">+32</td><td class="shares">21.2</td></tr>
+              <tr><td>20</td><td class="stock">KEI Industries</td><td class="flow-in">+29</td><td class="shares">0.5</td></tr>
+              <tr><td>21</td><td class="stock">Adani Green</td><td class="flow-in">+27</td><td class="shares">1.7</td></tr>
+              <tr><td>22</td><td class="stock">SAIL</td><td class="flow-in">+27</td><td class="shares">15.0</td></tr>
+              <tr><td>23</td><td class="stock">ABB</td><td class="flow-in">+25</td><td class="shares">0.3</td></tr>
+              <tr><td>24</td><td class="stock">Solar Industries</td><td class="flow-in">+21</td><td class="shares">0.1</td></tr>
+              <tr><td>25</td><td class="stock">NHPC</td><td class="flow-in">+15</td><td class="shares">18.3</td></tr>
+              <tr><td>26</td><td class="stock">DMart</td><td class="flow-in">+11</td><td class="shares">0.2</td></tr>
+              <tr><td>27</td><td class="stock">ICICI Bank</td><td class="flow-in">+11</td><td class="shares">0.8</td></tr>
+              <tr><td>28</td><td class="stock">Apar Industries</td><td class="flow-in">+9</td><td class="shares">0.1</td></tr>
+              <tr><td>29</td><td class="stock">Shriram Finance</td><td class="flow-in">+8</td><td class="shares">0.7</td></tr>
+              <tr><td>30</td><td class="stock">Thermax</td><td class="flow-in">+8</td><td class="shares">0.2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Outflows Table -->
+      <div>
+        <div class="section-title">
+          <span class="badge badge-outflow">Outflows</span>
+          <h2>Top Expected Selling</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Stock</th>
+                <th>Flow (USD Mn)</th>
+                <th>Shares (Mn)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td class="stock">Bharti Airtel</td><td class="flow-out">−88</td><td class="shares">4.4</td></tr>
+              <tr><td>2</td><td class="stock">Eicher Motors</td><td class="flow-out">−69</td><td class="shares">0.9</td></tr>
+              <tr><td>3</td><td class="stock">Asian Paints</td><td class="flow-out">−69</td><td class="shares">2.4</td></tr>
+              <tr><td>4</td><td class="stock">Hero MotoCorp</td><td class="flow-out">−63</td><td class="shares">1.2</td></tr>
+              <tr><td>5</td><td class="stock">Bajaj Finance</td><td class="flow-out">−62</td><td class="shares">6.0</td></tr>
+              <tr><td>6</td><td class="stock">Maruti Suzuki</td><td class="flow-out">−61</td><td class="shares">0.4</td></tr>
+              <tr><td>7</td><td class="stock">AU Small Fin. Bank</td><td class="flow-out">−57</td><td class="shares">5.1</td></tr>
+              <tr><td>8</td><td class="stock">TVS Motor</td><td class="flow-out">−56</td><td class="shares">1.5</td></tr>
+              <tr><td>9</td><td class="stock">Muthoot Finance</td><td class="flow-out">−56</td><td class="shares">1.7</td></tr>
+              <tr><td>10</td><td class="stock">IndiGo</td><td class="flow-out">−49</td><td class="shares">0.9</td></tr>
+              <tr><td>11</td><td class="stock">Canara Bank</td><td class="flow-out">−42</td><td class="shares">30.8</td></tr>
+              <tr><td>12</td><td class="stock">SBI Life</td><td class="flow-out">−41</td><td class="shares">2.2</td></tr>
+              <tr><td>13</td><td class="stock">State Bank of India</td><td class="flow-out">−38</td><td class="shares">3.5</td></tr>
+              <tr><td>14</td><td class="stock">Paytm</td><td class="flow-out">−36</td><td class="shares">3.2</td></tr>
+              <tr><td>15</td><td class="stock">Max Financial</td><td class="flow-out">−34</td><td class="shares">2.0</td></tr>
+              <tr><td>16</td><td class="stock">Fortis Healthcare</td><td class="flow-out">−33</td><td class="shares">3.2</td></tr>
+              <tr><td>17</td><td class="stock">Nykaa</td><td class="flow-out">−31</td><td class="shares">9.6</td></tr>
+              <tr><td>18</td><td class="stock">L&T Finance</td><td class="flow-out">−29</td><td class="shares">9.3</td></tr>
+              <tr><td>19</td><td class="stock">UPL</td><td class="flow-out">−29</td><td class="shares">4.6</td></tr>
+              <tr><td>20</td><td class="stock">Ashok Leyland</td><td class="flow-out">−29</td><td class="shares">17.6</td></tr>
+              <tr><td>21</td><td class="stock">Indian Bank</td><td class="flow-out">−28</td><td class="shares">3.2</td></tr>
+              <tr><td>22</td><td class="stock">Cholamandalam Fin.</td><td class="flow-out">−28</td><td class="shares">1.5</td></tr>
+              <tr><td>23</td><td class="stock">GMR Airports</td><td class="flow-out">−27</td><td class="shares">23.8</td></tr>
+              <tr><td>24</td><td class="stock">BSE Ltd.</td><td class="flow-out">−20</td><td class="shares">0.5</td></tr>
+              <tr><td>25</td><td class="stock">Hindalco</td><td class="flow-out">−19</td><td class="shares">1.8</td></tr>
+              <tr><td>26</td><td class="stock">Axis Bank</td><td class="flow-out">−18</td><td class="shares">1.2</td></tr>
+              <tr><td>27</td><td class="stock">Aditya Birla Capital</td><td class="flow-out">−15</td><td class="shares">3.5</td></tr>
+              <tr><td>28</td><td class="stock">Power Grid</td><td class="flow-out">−12</td><td class="shares">3.9</td></tr>
+              <tr><td>29</td><td class="stock">IDFC First Bank</td><td class="flow-out">−12</td><td class="shares">14.1</td></tr>
+              <tr><td>30</td><td class="stock">RBL Bank</td><td class="flow-out">−12</td><td class="shares">2.9</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end tables-grid -->
+
+    <hr class="divider">
+
+    <!-- Market Impact -->
+    <div class="section-title">
+      <span class="badge badge-neutral">Analysis</span>
+      <h2>Market Impact — What to Expect</h2>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="ic-num">1</div>
+        <h3>Closing-Session Volatility</h3>
+        <p>Index funds must rebalance on the effective date itself, causing large order flow — especially concentrated in the last 30 minutes of the session.</p>
+      </div>
+      <div class="impact-card">
+        <div class="ic-num">2</div>
+        <h3>Short-Term Price Pressure</h3>
+        <p>Stocks with large inflows may see temporary buying interest; those with large outflows may face short-term selling pressure in the days surrounding the rejig.</p>
+      </div>
+      <div class="impact-card">
+        <div class="ic-num">3</div>
+        <h3>Not a Fundamental Signal</h3>
+        <p>Long-term investors should not react to rebalancing-driven price moves. These flows reflect index weight changes, not any change in business quality or earnings outlook.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Observations -->
+    <div class="section-title">
+      <span class="badge badge-neutral">Observation</span>
+      <h2>Key Stocks to Watch</h2>
+    </div>
+
+    <div class="obs-grid">
+      <div class="obs-card buy">
+        <h3>Highest Buying Pressure</h3>
+        <ul>
+          <li>MCX &nbsp;(+USD 80 Mn)</li>
+          <li>NTPC &nbsp;(+USD 77 Mn)</li>
+          <li>Laurus Labs &nbsp;(+USD 73 Mn)</li>
+          <li>Adani Power &nbsp;(+USD 72 Mn)</li>
+          <li>GVT&amp;D &nbsp;(+USD 70 Mn)</li>
+          <li>BHEL &nbsp;(+USD 60 Mn)</li>
+          <li>Tata Steel &nbsp;(+USD 59 Mn)</li>
+          <li>Vedanta &nbsp;(+USD 51 Mn)</li>
+          <li>Coal India &nbsp;(+USD 35 Mn)</li>
+        </ul>
+      </div>
+      <div class="obs-card sell">
+        <h3>Highest Selling Pressure</h3>
+        <ul>
+          <li>Bharti Airtel &nbsp;(−USD 88 Mn)</li>
+          <li>Eicher Motors &nbsp;(−USD 69 Mn)</li>
+          <li>Asian Paints &nbsp;(−USD 69 Mn)</li>
+          <li>Hero MotoCorp &nbsp;(−USD 63 Mn)</li>
+          <li>Bajaj Finance &nbsp;(−USD 62 Mn)</li>
+          <li>Maruti Suzuki &nbsp;(−USD 61 Mn)</li>
+          <li>TVS Motor &nbsp;(−USD 56 Mn)</li>
+          <li>Muthoot Finance &nbsp;(−USD 56 Mn)</li>
+          <li>Canara Bank &nbsp;(−USD 42 Mn)</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Key Takeaways -->
+    <div class="section-title">
+      <span class="badge badge-neutral">Takeaways</span>
+      <h2>Investor &amp; Trader Guidance</h2>
+    </div>
+
+    <div class="learnings">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Always treat index rebalancing as a short-term liquidity event, not an investment signal.</li>
+        <li>Buying a stock purely because it has inflows — or selling purely due to outflows — is not a sound strategy.</li>
+        <li>Any decision should be backed by fundamentals, valuation, volume, price action, and VPA analysis.</li>
+        <li>Passive fund forced flows can create price dislocations for a few sessions, but long-term direction is determined by earnings and business performance.</li>
+        <li>Traders may look for short-term mean-reversion setups post-rebalancing, particularly in large-outflow names with strong underlying fundamentals.</li>
+      </ul>
+    </div>
+
+  </div><!-- end body -->
+
+  <!-- SEBI Disclosure -->
+  <div class="sebi-disc-section">
+    <div class="sebi-top">
+      <h4>SEBI Research Analyst Disclosures &amp; Disclaimer</h4>
+      <div class="sebi-reg-badge">SEBI RA Reg. No. INH000027812</div>
+    </div>
+    <div class="disc-points">
+      <div class="disc-pt">SigmaOne Capital is registered with SEBI as a Research Analyst under SEBI (Research Analysts) Regulations, 2014, vide Registration No. INH000027812.</div>
+      <div class="disc-pt">The Research Analyst or its associates do not hold any financial interest / beneficial ownership of more than 1% in the securities mentioned in this report as on the date of publication.</div>
+      <div class="disc-pt">The Research Analyst has not received any compensation from any company mentioned herein during the past twelve (12) months.</div>
+      <div class="disc-pt">The Research Analyst has not managed or co-managed a public offering of securities of any company mentioned herein in the past twelve (12) months.</div>
+      <div class="disc-pt">The Research Analyst has not served as an officer, director, or employee of any company mentioned in this report.</div>
+      <div class="disc-pt">The Research Analyst is not engaged in any market-making activity for any of the securities mentioned herein. No material conflict of interest exists at the time of publication.</div>
+    </div>
+    <div class="general-disc">
+      <strong>General Disclaimer:</strong> This research note is prepared for informational and educational purposes only on the basis of publicly available information sourced from reliable third-party sources. It does not constitute investment advice, a solicitation, or an offer to buy or sell any securities. Views expressed are solely those of the Research Analyst. SEBI does not take any responsibility for the correctness of statements made herein. Investors are advised to conduct independent due diligence and consult their SEBI-registered investment adviser before making any investment decisions. Past performance is not indicative of future results. Actual passive flows on the rebalancing date may differ due to tracking error, fund size, and execution strategy. For securities market grievances, investors may contact SEBI at <strong class="scores-link">scores.sebi.gov.in</strong>.
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="source-text">
+      <strong>Source:</strong> SigmaOne Capital &nbsp;|&nbsp; Nifty Indices Rejig Analysis — 29 June 2026<br>
+      Data compiled from estimated passive fund flow projections.
+    </div>
+    <div class="disclaimer">
+      Disclaimer: Estimated flows are based on projected passive fund rebalancing. Actual flows may differ due to tracking error, fund size, and execution strategy. This note is for informational purposes only and does not constitute investment advice.
+    </div>
+  </div>
+
+</div><!-- end page -->
+
+</body>
+</html>
