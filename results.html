@@ -35,9 +35,8 @@
     padding:0 0 64px 0;
   }
 
-  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
 
-  /* ---------- MASTHEAD ---------- */
   .masthead{
     border-bottom:1px solid var(--hair);
     padding:36px 0 22px 0;
@@ -116,15 +115,14 @@
     margin-top:10px;
     font-size:14px;
     color:var(--muted);
-    max-width:640px;
+    max-width:680px;
     line-height:1.55;
   }
 
-  /* ---------- WEEK STRIP (signature element) ---------- */
   .week-strip{
     margin-top:26px;
     display:grid;
-    grid-template-columns:repeat(7,1fr);
+    grid-template-columns:repeat(6,1fr);
     gap:1px;
     background:var(--hair);
     border:1px solid var(--hair);
@@ -153,14 +151,11 @@
     font-size:10px;
     color:var(--muted-2);
   }
-  .day-cell.active{
-    background:var(--gold-soft);
-  }
+  .day-cell.active{background:var(--gold-soft);}
   .day-cell.active .dom{color:var(--gold);font-weight:600;}
   .day-cell.active .count{color:var(--gold);}
   .day-cell.today .dow{color:var(--blue);}
 
-  /* ---------- SECTIONS ---------- */
   section.block{margin-top:46px;}
   .block-head{
     display:flex;
@@ -191,11 +186,7 @@
     text-align:right;
   }
 
-  table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:4px;
-  }
+  table{width:100%;border-collapse:collapse;margin-top:4px;}
   thead th{
     text-align:left;
     font-family:'IBM Plex Mono', monospace;
@@ -208,7 +199,7 @@
     border-bottom:1px solid var(--hair-soft);
   }
   tbody td{
-    padding:16px 10px;
+    padding:14px 10px;
     border-bottom:1px solid var(--hair-soft);
     font-size:14px;
     vertical-align:middle;
@@ -220,11 +211,7 @@
     font-size:13px;
     color:var(--paper);
   }
-  .company{
-    color:var(--muted);
-    font-size:12.5px;
-    margin-top:2px;
-  }
+  .company{color:var(--muted);font-size:12.5px;margin-top:2px;}
   .cap-tag{
     display:inline-block;
     font-family:'IBM Plex Mono', monospace;
@@ -235,27 +222,13 @@
     border:1px solid var(--hair);
     color:var(--muted);
   }
-  .cap-tag.mid{color:var(--gold);border-color:#5a4a1f;}
-  .cap-tag.large{color:var(--blue);border-color:#2c4368;}
+  .cap-tag.mid{color:var(--gold);border-color:#1a5a55;}
+  .cap-tag.large{color:var(--blue);border-color:#5a4a1f;}
   .cap-tag.small{color:var(--muted-2);}
-  .date-cell{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    color:var(--paper);
-  }
-  .date-cell .day{
-    font-size:11px;
-    color:var(--muted-2);
-    display:block;
-    margin-top:2px;
-  }
-  .sector-cell{
-    font-size:12.5px;
-    color:var(--muted);
-  }
-  td.right{text-align:right;}
+  .date-cell{font-family:'IBM Plex Mono', monospace;font-size:13px;color:var(--paper);}
+  .date-cell .day{font-size:11px;color:var(--muted-2);display:block;margin-top:2px;}
+  .sector-cell{font-size:12.5px;color:var(--muted);}
 
-  /* ---------- NOTES ---------- */
   .desk-note{
     margin-top:18px;
     padding:14px 16px;
@@ -279,22 +252,23 @@
     text-transform:uppercase;
     color:var(--muted-2);
   }
-  .excluded ul{
-    margin:10px 0 0 0;
-    padding:0;
-    list-style:none;
-  }
+  .excluded ul{margin:10px 0 0 0;padding:0;list-style:none;}
   .excluded li{
     font-size:12.5px;
     color:var(--muted);
-    padding:8px 0;
+    padding:9px 0;
     border-bottom:1px solid var(--hair-soft);
     display:flex;
-    justify-content:space-between;
+    gap:14px;
   }
-  .excluded li span:first-child{color:var(--paper);font-family:'IBM Plex Mono', monospace;font-size:12px;}
+  .excluded li span:first-child{
+    color:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    flex-shrink:0;
+    width:92px;
+  }
 
-  /* ---------- FOOTER ---------- */
   footer{
     margin-top:56px;
     padding-top:22px;
@@ -304,15 +278,16 @@
     line-height:1.7;
   }
   footer .fline{margin-bottom:6px;}
-  footer strong{color:var(--muted);}
 
   @media (max-width:640px){
     h1{font-size:26px;}
     .headline-row{flex-direction:column;align-items:flex-start;}
-    thead th:nth-child(3), tbody td:nth-child(3){display:none;}
-    .week-strip{grid-template-columns:repeat(7,1fr);}
+    thead th:nth-child(2), tbody td:nth-child(2){display:none;}
+    .week-strip{grid-template-columns:repeat(6,1fr);}
     .day-cell{padding:8px 4px 10px 4px;}
     .day-cell .dom{font-size:16px;}
+    .excluded li{flex-direction:column;gap:2px;}
+    .excluded li span:first-child{width:auto;}
   }
 </style>
 </head>
@@ -337,18 +312,17 @@
 
     <div class="headline-row">
       <h1>Weekly Results Radar</h1>
-      <div class="period">06&nbsp;JUL&nbsp;2026 &mdash; 12&nbsp;JUL&nbsp;2026 &nbsp;·&nbsp; Q1 FY27</div>
+      <div class="period">13&nbsp;JUL&nbsp;2026 &mdash; 18&nbsp;JUL&nbsp;2026 &nbsp;·&nbsp; Q1 FY27</div>
     </div>
-    <div class="dek">Board meetings confirmed for the Jul&nbsp;9–11 stretch, split into the F&amp;O universe your open positions actually track and the midcap names worth a watchlist flag. IV typically peaks the session before print and crushes right after — plan hedges accordingly.</div>
+    <div class="dek">41 companies on the board this week — from HCL Tech's Monday open to the private-banking finale on Saturday. The table below covers the F&amp;O universe, with each name tagged Large or Mid cap; the rest are listed transparently rather than force-fit into the screen.</div>
 
     <div class="week-strip">
-      <div class="day-cell"><div class="dow">Mon</div><div class="dom">06</div><div class="count">—</div></div>
-      <div class="day-cell"><div class="dow">Tue</div><div class="dom">07</div><div class="count">—</div></div>
-      <div class="day-cell today"><div class="dow">Wed</div><div class="dom">08</div><div class="count">—</div></div>
-      <div class="day-cell active"><div class="dow">Thu</div><div class="dom">09</div><div class="count">2 rpts</div></div>
-      <div class="day-cell active"><div class="dow">Fri</div><div class="dom">10</div><div class="count">3 rpts</div></div>
-      <div class="day-cell active"><div class="dow">Sat</div><div class="dom">11</div><div class="count">2 rpts</div></div>
-      <div class="day-cell"><div class="dow">Sun</div><div class="dom">12</div><div class="count">—</div></div>
+      <div class="day-cell active"><div class="dow">Mon</div><div class="dom">13</div><div class="count">2 rpts</div></div>
+      <div class="day-cell active"><div class="dow">Tue</div><div class="dom">14</div><div class="count">3 rpts</div></div>
+      <div class="day-cell active"><div class="dow">Wed</div><div class="dom">15</div><div class="count">12 rpts</div></div>
+      <div class="day-cell active"><div class="dow">Thu</div><div class="dom">16</div><div class="count">10 rpts</div></div>
+      <div class="day-cell active"><div class="dow">Fri</div><div class="dom">17</div><div class="count">8 rpts</div></div>
+      <div class="day-cell active"><div class="dow">Sat</div><div class="dom">18</div><div class="count">7 rpts</div></div>
     </div>
   </div>
 
@@ -359,94 +333,211 @@
         <div class="eyebrow">F&amp;O Universe</div>
         <h2>Derivatives Stocks Reporting This Week</h2>
       </div>
-      <div class="tally">5 names<br>with active NSE contracts</div>
+      <div class="tally">32 names<br>with active NSE contracts</div>
     </div>
 
     <table>
       <thead>
-        <tr>
-          <th>Ticker</th>
-          <th>Sector</th>
-          <th>Cap</th>
-          <th>Results Date</th>
-        </tr>
+        <tr><th>Ticker</th><th>Sector</th><th>Cap</th><th>Results Date</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><div class="ticker">TCS</div><div class="company">Tata Consultancy Services</div></td>
+          <td><div class="ticker">HCLTECH</div><div class="company">HCL Technologies Ltd</div></td>
           <td class="sector-cell">IT Services</td>
-          <td><span class="cap-tag large">Large</span></td>
-          <td class="date-cell">09 Jul 2026<span class="day">Thursday</span></td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">13 Jul 2026<span class="day">Monday</span></td>
         </tr>
         <tr>
-          <td><div class="ticker">LTF</div><div class="company">L&amp;T Finance Ltd</div></td>
-          <td class="sector-cell">NBFC</td>
-          <td><span class="cap-tag mid">Mid</span></td>
-          <td class="date-cell">10 Jul 2026<span class="day">Friday</span></td>
+          <td><div class="ticker">NUVOCO</div><div class="company">Nuvoco Vistas Corporation Ltd</div></td>
+          <td class="sector-cell">Cement</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">13 Jul 2026<span class="day">Monday</span></td>
         </tr>
         <tr>
-          <td><div class="ticker">INDIANB</div><div class="company">Indian Bank</div></td>
+          <td><div class="ticker">TATAELXSI</div><div class="company">Tata Elxsi Ltd</div></td>
+          <td class="sector-cell">IT Services / Design</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">14 Jul 2026<span class="day">Tuesday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">LTTS</div><div class="company">L&amp;T Technology Services Ltd</div></td>
+          <td class="sector-cell">IT Services</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">14 Jul 2026<span class="day">Tuesday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">UNIONBANK</div><div class="company">Union Bank of India</div></td>
           <td class="sector-cell">PSU Bank</td>
-          <td><span class="cap-tag mid">Mid</span></td>
-          <td class="date-cell">10 Jul 2026<span class="day">Friday</span></td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">15 Jul 2026<span class="day">Wednesday</span></td>
         </tr>
         <tr>
-          <td><div class="ticker">LTM</div><div class="company">LTM Ltd (formerly LTIMindtree)</div></td>
+          <td><div class="ticker">HDFCAMC</div><div class="company">HDFC Asset Management Co Ltd</div></td>
+          <td class="sector-cell">AMC</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">15 Jul 2026<span class="day">Wednesday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">HDFCLIFE</div><div class="company">HDFC Life Insurance Co Ltd</div></td>
+          <td class="sector-cell">Life Insurance</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">15 Jul 2026<span class="day">Wednesday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">ICICIPRULI</div><div class="company">ICICI Prudential Life Insurance</div></td>
+          <td class="sector-cell">Life Insurance</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">15 Jul 2026<span class="day">Wednesday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">ICICIGI</div><div class="company">ICICI Lombard General Insurance</div></td>
+          <td class="sector-cell">General Insurance</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">15 Jul 2026<span class="day">Wednesday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">ANGELONE</div><div class="company">Angel One Ltd</div></td>
+          <td class="sector-cell">Broking</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">15 Jul 2026<span class="day">Wednesday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">CEATLTD</div><div class="company">CEAT Ltd</div></td>
+          <td class="sector-cell">Tyres</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">WIPRO</div><div class="company">Wipro Ltd</div></td>
           <td class="sector-cell">IT Services</td>
-          <td><span class="cap-tag large">Large</span></td>
-          <td class="date-cell">11 Jul 2026<span class="day">Saturday*</span></td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
         </tr>
         <tr>
-          <td><div class="ticker">DMART</div><div class="company">Avenue Supermarts Ltd</div></td>
-          <td class="sector-cell">Retail</td>
-          <td><span class="cap-tag large">Large</span></td>
-          <td class="date-cell">11 Jul 2026<span class="day">Saturday*</span></td>
+          <td><div class="ticker">PEL</div><div class="company">Piramal Finance Ltd</div></td>
+          <td class="sector-cell">NBFC</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">BHEL</div><div class="company">Bharat Heavy Electricals Ltd</div></td>
+          <td class="sector-cell">Capital Goods</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">TECHM</div><div class="company">Tech Mahindra Ltd</div></td>
+          <td class="sector-cell">IT Services</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">JIOFIN</div><div class="company">Jio Financial Services Ltd</div></td>
+          <td class="sector-cell">NBFC</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">POLYCAB</div><div class="company">Polycab India Ltd</div></td>
+          <td class="sector-cell">Cables & Wires</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">360ONE</div><div class="company">360 ONE WAM Ltd</div></td>
+          <td class="sector-cell">Wealth Mgmt</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">16 Jul 2026<span class="day">Thursday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">RELIANCE</div><div class="company">Reliance Industries Ltd</div></td>
+          <td class="sector-cell">Conglomerate</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">HAVELLS</div><div class="company">Havells India Ltd</div></td>
+          <td class="sector-cell">Consumer Electricals</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">FEDERALBNK</div><div class="company">Federal Bank Ltd</div></td>
+          <td class="sector-cell">Private Bank</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">JSWSTEEL</div><div class="company">JSW Steel Ltd</div></td>
+          <td class="sector-cell">Metals</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">POONAWALLA</div><div class="company">Poonawalla Fincorp Ltd</div></td>
+          <td class="sector-cell">NBFC</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">RBLBANK</div><div class="company">RBL Bank Ltd</div></td>
+          <td class="sector-cell">Private Bank</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">TATATECH</div><div class="company">Tata Technologies Ltd</div></td>
+          <td class="sector-cell">Engineering R&amp;D</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">OBEROIRLTY</div><div class="company">Oberoi Realty Ltd</div></td>
+          <td class="sector-cell">Realty</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">17 Jul 2026<span class="day">Friday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">CANFINHOME</div><div class="company">Can Fin Homes Ltd</div></td>
+          <td class="sector-cell">Housing Finance</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">18 Jul 2026<span class="day">Saturday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">KOTAKBANK</div><div class="company">Kotak Mahindra Bank Ltd</div></td>
+          <td class="sector-cell">Private Bank</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">18 Jul 2026<span class="day">Saturday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">HDFCBANK</div><div class="company">HDFC Bank Ltd</div></td>
+          <td class="sector-cell">Private Bank</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">18 Jul 2026<span class="day">Saturday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">ICICIBANK</div><div class="company">ICICI Bank Ltd</div></td>
+          <td class="sector-cell">Private Bank</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">18 Jul 2026<span class="day">Saturday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">AXISBANK</div><div class="company">Axis Bank Ltd</div></td>
+          <td class="sector-cell">Private Bank</td>
+          <td><span class="cap-tag large">LARGE</span></td>
+          <td class="date-cell">18 Jul 2026<span class="day">Saturday</span></td>
+        </tr>
+        <tr>
+          <td><div class="ticker">JKCEMENT</div><div class="company">J K Cements Ltd</div></td>
+          <td class="sector-cell">Cement</td>
+          <td><span class="cap-tag mid">MID</span></td>
+          <td class="date-cell">18 Jul 2026<span class="day">Saturday</span></td>
         </tr>
       </tbody>
     </table>
 
     <div class="desk-note">
-      <b>Desk view:</b> TCS on the 9th sets the tone for the IT pack — LTM two sessions later trades on that read-through. LTF and Indian Bank print back-to-back on the 10th, so expect NBFC/PSU-bank F&amp;O basket volatility to cluster that session. *Board dates falling on a non-trading day are typically advanced or the results are released after a preceding trading session's close — confirm the exact filing time on the NSE corporate announcement before building an expiry-day position.
-    </div>
-  </section>
-
-  <!-- MIDCAP UNIVERSE -->
-  <section class="block">
-    <div class="block-head">
-      <div>
-        <div class="eyebrow">Midcap Universe</div>
-        <h2>Midcap Stocks Reporting This Week</h2>
-      </div>
-      <div class="tally">2 names<br>SEBI mid-cap classification</div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Ticker</th>
-          <th>Sector</th>
-          <th>Mkt Cap (₹ Cr)</th>
-          <th>Results Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="ticker">LTF</div><div class="company">L&amp;T Finance Ltd</div></td>
-          <td class="sector-cell">NBFC</td>
-          <td class="date-cell">~81,100</td>
-          <td class="date-cell">10 Jul 2026<span class="day">Friday</span></td>
-        </tr>
-        <tr>
-          <td><div class="ticker">INDIANB</div><div class="company">Indian Bank</div></td>
-          <td class="sector-cell">PSU Bank</td>
-          <td class="date-cell">~1,05,900</td>
-          <td class="date-cell">10 Jul 2026<span class="day">Friday</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="desk-note">
-      <b>Desk view:</b> Both midcap reporters this week are also F&amp;O-active, so the same 10 Jul session carries dual weight — cash-market midcap positioning and derivatives OI unwind can amplify each other. No pure midcap (non-F&amp;O) names are confirmed for this window.
+      <b>Desk view:</b> Wednesday (15th) and Thursday (16th) are the heaviest F&amp;O print days — 12 and 10 reporters respectively, spanning insurers, AMCs and IT. Saturday's private-bank quartet (Kotak, HDFC Bank, ICICI Bank, Axis Bank) plus J K Cement closes the week; confirm exact filing windows on NSE corporate announcements since Saturday prints are typically released after Friday's close or via a special trading session.
     </div>
   </section>
 
@@ -454,13 +545,21 @@
   <div class="excluded">
     <div class="eyebrow">Other Confirmed Reporters This Week — Outside Both Screens</div>
     <ul>
-      <li><span>ANANDRATHI</span><span>Anand Rathi Wealth Ltd — Small Cap, no NSE F&amp;O contract — 09 Jul 2026</span></li>
-      <li><span>ELECON</span><span>Elecon Engineering Co. Ltd — Small Cap, no NSE F&amp;O contract — 10 Jul 2026</span></li>
+      <li><span>ICICIAMC</span><span>ICICI Prudential Asset Mgmt Co Ltd — AMC — 13 Jul 2026 — Large Cap (~₹1.56L Cr) — listed Dec 2025, not yet on F&amp;O eligibility list</span></li>
+      <li><span>JINDALSAW</span><span>Jindal Saw Ltd — Pipes — 14 Jul 2026 — Midcap — no active NSE F&amp;O contract</span></li>
+      <li><span>MRPL</span><span>Mangalore Refinery &amp; Petrochemicals Ltd — Oil &amp; Gas (PSU) — 15 Jul 2026 — Midcap — no active NSE F&amp;O contract</span></li>
+      <li><span>HIMADRI</span><span>Himadri Speciality Chemical Ltd — Specialty Chemicals — 15 Jul 2026 — Midcap — no active NSE F&amp;O contract</span></li>
+      <li><span>HDBFS</span><span>HDB Financial Services Ltd — NBFC — 15 Jul 2026 — Large Cap — listed Jul 2025, F&amp;O status not yet confirmed</span></li>
+      <li><span>EMMVEE</span><span>Emmvee Photovoltaic Power Ltd — Solar Manufacturing — 15 Jul 2026 — Recently listed — small float, no F&amp;O contract</span></li>
+      <li><span>GROWW</span><span>Billionbrains Garage Ventures Ltd (Groww) — Fintech / Broking — 15 Jul 2026 — Large Cap by valuation — recently listed, F&amp;O status not yet confirmed</span></li>
+      <li><span>NEWGEN</span><span>Newgen Software Technologies Ltd — IT Services — 16 Jul 2026 — Small/Midcap — no active NSE F&amp;O contract</span></li>
+      <li><span>ITCHOTELS</span><span>ITC Hotels Ltd — Hospitality — 16 Jul 2026 — Large Cap — demerged Jan 2025, F&amp;O status not yet confirmed</span></li>
+      <li><span>INDIACEM</span><span>India Cements Ltd — Cement — 18 Jul 2026 — Small Cap — reduced free float post UltraTech open offer, F&amp;O status uncertain</span></li>
     </ul>
   </div>
 
   <footer>
-    <div class="fline"><strong>Coverage note:</strong> This calendar reflects board-meeting intimations verified against NSE/BSE filings and exchange data at the time of publishing. Tentative dates can shift by 1–7 days on auditor sign-off or exchange query — always cross-check the same-day NSE corporate announcement before initiating a results-linked trade.</div>
+    <div class="fline"><strong>Coverage note:</strong> This calendar reflects board-meeting intimations verified against NSE/BSE filings and exchange data at the time of publishing. F&amp;O eligibility and market-cap tags reflect the latest available classification; NSE reviews the F&amp;O universe periodically and recently-listed names can be added between cycles — always cross-check the same-day NSE corporate announcement and live F&amp;O list before initiating a results-linked trade.</div>
     <div class="fline"><strong>Disclaimer:</strong> This document is for informational purposes only and does not constitute investment advice, a recommendation, or an offer to buy or sell any security. F&amp;O trading carries substantial risk of loss. SigmaOne Capital is a SEBI Registered Research Analyst (Reg. No. INH000027812). Please read all risk disclosures before trading in derivatives.</div>
     <div class="fline">© 2026 SigmaOne Capital · sigmaonecapital.in</div>
   </footer>
